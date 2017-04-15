@@ -1,0 +1,15 @@
+#!/bin/bash
+xhost +
+docker run -ti --rm \
+       -e DISPLAY=$DISPLAY \
+       -v /tmp/.X11-unix:/tmp/.X11-unix \
+       -v /dev/snd:/dev/snd \
+       --device /dev/snd \
+       --name firefox-ubuntu \
+       -l purpose=Desktop -l base=ubuntu1404 \
+       yanivl/firefox-ubuntu:version3
+
+
+
+
+#docker run -ti --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v /dev/snd:/dev/snd --device /dev/snd --name firefox-ubuntu -l purpose=Desktop -l base=ubuntu1404 yanivl/firefox-ubuntu:latest
