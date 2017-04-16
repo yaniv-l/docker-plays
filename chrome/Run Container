@@ -1,0 +1,13 @@
+docker run -it \
+	--net host \
+	--memory 512mb \
+	-e DISPLAY=$DISPLAY \
+        -v /tmp/.X11-unix:/tmp/.X11-unix \
+	-v $HOME/Downloads:/home/chrome/Downloads \
+	-v $HOME/.config/google-chrome/:/data \
+	--security-opt seccomp=chrome.json \
+	--device /dev/snd \
+	-v /dev/shm:/dev/shm \
+	--name chrome \
+	yanivl/chrome
+
